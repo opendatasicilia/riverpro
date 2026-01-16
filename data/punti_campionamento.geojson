@@ -1,0 +1,9 @@
+{
+    "type": "FeatureCollection",
+    "name": "Punti di campionamento - RIVER PRO",
+    "features": [
+        { "type": "Feature", "properties": { "name": "Sorgente di Ponte Barca", "type": "Sito di campionamento" }, "geometry": { "type": "Point", "coordinates": [ 14.864244, 37.552054, 0.0 ] } },
+        { "type": "Feature", "properties": { "name": "Pietralunga", "type": "Sito di campionamento" }, "geometry": { "type": "Point", "coordinates": [ 14.8645479, 37.5751834, 0.0 ] } },
+        { "type": "Feature", "properties": { "name": "Impianto di depurazione di Ponte Barca", "type": "Sito di campionamento" }, "geometry": { "type": "Point", "coordinates": [ 14.864296, 37.551542, 0.0 ] } }
+    ]
+}

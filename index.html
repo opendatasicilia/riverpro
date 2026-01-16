@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>River Pro - Scienza dei cittadini per la tutela del Simeto</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+          crossorigin=""/>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">River<span>Pro</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#methodology">Metodologia</a></li>
+                <li><a href="#map-section">Mappa</a></li>
+                <li><a href="#results">Risultati</a></li>
+                <li><a href="#monitoring-data">Monitoraggio</a></li>
+                <li><a href="#data">Dati</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>River Pro: scienza dei cittadini per la tutela del Simeto</h1>
+            <p>Un progetto di monitoraggio partecipato supportato dall'acceleratore europeo Impetus4cs. Dati reali e azione locale per affrontare le sfide della gestione idrica.</p>
+            <a href="#map-section" class="cta-button">Esplora i dati</a>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="methodology" id="methodology">
+        <div class="container">
+            <h2 class="section-title">Il progetto e la metodologia</h2>
+            <p class="section-subtitle">Dalla citizen science alla governance condivisa</p>
+            
+            <div class="methodology-content">
+                <div class="methodology-text">
+                    <h3>La nostra metodologia</h3>
+                    <p>Nell'ambito dell'accelerator program di Impetus4cs, Nesti ha avviato un'attività di monitoraggio intensivo per valutare lo stato di salute del fiume Simeto. L'obiettivo è misurare con rigore scientifico l'impatto dei fattori antropici e climatici sulle risorse idriche.</p>
+                    <p>Le prime campagne di rilevamento si sono svolte a <strong>novembre e dicembre 2024</strong>. Abbiamo seguito protocolli standardizzati per garantire la coerenza dei dati, analizzando parametri fondamentali come temperatura, pH, torbidità, livelli di nitrati, fosfati e durezza dell'acqua.</p>
+                    
+                    <h4 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary-blue);">Strumentazione utilizzata:</h4>
+                    <ul class="tool-list">
+                        <li><strong>Metri digitali</strong> per la registrazione di temperatura e pH</li>
+                        <li><strong>Disco di Secchi</strong> per valutare la trasparenza dell'acqua e la torbidità</li>
+                        <li><strong>Kit colorimetrici</strong> per l'analisi dei parametri chimici (nitrati e fosfati)</li>
+                        <li><strong>Titolazione con EDTA</strong> per determinare la durezza dell'acqua</li>
+                    </ul>
+                </div>
+                <div class="methodology-image">
+                    <div class="icon"><i class="fas fa-microscope" style="font-size: 3rem; color: var(--primary-blue);"></i></div>
+                    <h3 style="color: var(--primary-blue);">Monitoraggio Scientifico</h3>
+                    <p style="text-align: center; color: var(--dark-text);">Campionamenti in orari diurni per tenere conto delle condizioni di luce naturale e della variabilità ambientale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="map-section">
+        <div class="container">
+            <h2 class="section-title">I siti di monitoraggio</h2>
+            <p class="section-subtitle">I punti strategici del monitoraggio nel territorio del Patto Simeto</p>
+            
+            <div id="map"></div>
+            
+            <div class="map-legend">
+                <div class="legend-title"><i class="fas fa-layer-group"></i> Livelli della mappa (clicca per attivare/disattivare)</div>
+                <div class="legend-grid">
+                    <div class="legend-item" data-layer="sampling-excellent">
+                        <input type="checkbox" class="legend-checkbox" checked>
+                        <div class="legend-color sampling-excellent"></div>
+                        <span class="legend-label">Sorgente di Ponte Barca</span>
+                    </div>
+                    <div class="legend-item" data-layer="sampling-critical">
+                        <input type="checkbox" class="legend-checkbox" checked>
+                        <div class="legend-color sampling-critical"></div>
+                        <span class="legend-label">Impianto di depurazione</span>
+                    </div>
+                    <div class="legend-item" data-layer="sampling-moderate">
+                        <input type="checkbox" class="legend-checkbox" checked>
+                        <div class="legend-color sampling-moderate"></div>
+                        <span class="legend-label">Pietralunga</span>
+                    </div>
+                    <div class="legend-item" data-layer="infrastructure">
+                        <input type="checkbox" class="legend-checkbox" checked>
+                        <div class="legend-color infrastructure"></div>
+                        <span class="legend-label">Risorse idriche e centrali</span>
+                    </div>
+                    <div class="legend-item" data-layer="boundaries">
+                        <input type="checkbox" class="legend-checkbox" checked>
+                        <div class="legend-color boundaries"></div>
+                        <span class="legend-label">Confini comuni Patto Simeto</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results" id="results">
+        <div class="container">
+            <h2 class="section-title">I primi risultati</h2>
+            <p class="section-subtitle">Cosa ci dicono i dati (novembre - dicembre 2024)</p>
+            
+            <div class="results-grid">
+                <div class="result-card excellent">
+                    <h4>Sorgente di Ponte Barca</h4>
+                    <span class="status-badge excellent">🟢 Stato: eccellente / naturale</span>
+                    <p>La sorgente conferma il suo stato incontaminato. I parametri rilevati rientrano nei range ottimali:</p>
+                    <ul>
+                        <li><strong>Trasparenza:</strong> eccellente (>30 cm), fondamentale per gli habitat acquatici</li>
+                        <li><strong>Chimica:</strong> assenza di nitrati e livelli stabili di fosfati (1 mg/L)</li>
+                        <li><strong>Temperatura:</strong> valori stabili (15.8°C - 18.6°C)</li>
+                        <li><strong>Durezza:</strong> valori elevati (265–272 mg/L) coerenti con la geologia locale</li>
+                    </ul>
+                </div>
+                
+                <div class="result-card critical">
+                    <h4>Impianto di depurazione di Ponte Barca</h4>
+                    <span class="status-badge critical">🔴 Stato: critico / attenzione</span>
+                    <p>I dati evidenziano carenze nel processo di trattamento che impattano la qualità dell'acqua a valle:</p>
+                    <ul>
+                        <li><strong>Nitrati:</strong> livelli persistentemente alti (≥5 mg/L), rischio di eutrofizzazione</li>
+                        <li><strong>Torbidità:</strong> trasparenza ridotta (13-14 cm) a causa dei solidi sospesi</li>
+                        <li><strong>Conclusione:</strong> necessari interventi tecnologici per la filtrazione</li>
+                    </ul>
+                </div>
+                
+                <div class="result-card moderate">
+                    <h4>Pietralunga</h4>
+                    <span class="status-badge moderate">🟡 Stato: moderato / influenza agricola</span>
+                    <p>L'area mostra una qualità dell'acqua discreta, ma con segni dell'attività agricola:</p>
+                    <ul>
+                        <li><strong>Nitrati:</strong> livelli moderatamente elevati (2.5–3 mg/L) da runoff agricolo</li>
+                        <li><strong>Torbidità:</strong> variabile (21-22 cm), influenzata dal dilavamento</li>
+                        <li><strong>Obiettivo:</strong> promuovere pratiche agricole sostenibili</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monitoring Data Section -->
+    <section class="monitoring-data" id="monitoring-data">
+        <div class="container">
+            <h2 class="section-title">Dati di monitoraggio</h2>
+            <p class="section-subtitle">Visualizzazione interattiva dei parametri rilevati durante le campagne di novembre e dicembre 2024</p>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-location="all">Tutti i siti</button>
+                <button class="filter-btn" data-location="Sorgente di Ponte Barca">Sorgente di Ponte Barca</button>
+                <button class="filter-btn" data-location="Impianto di depurazione di Ponte Barca">Impianto di depurazione di Ponte Barca</button>
+                <button class="filter-btn" data-location="Pietralunga">Pietralunga</button>
+            </div>
+
+            <div class="charts-container">
+                <div class="chart-card">
+                    <h4><i class="fas fa-temperature-high"></i> Temperatura nel tempo</h4>
+                    <div class="chart-wrapper">
+                        <canvas id="temperatureChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h4><i class="fas fa-water"></i> Trasparenza</h4>
+                    <div class="chart-wrapper">
+                        <canvas id="turbidityChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h4><i class="fas fa-flask-vial"></i> Nitrati per sito</h4>
+                    <div class="chart-wrapper">
+                        <canvas id="nitrateChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h4><i class="fas fa-vial"></i> Confronto pH</h4>
+                    <div class="chart-wrapper">
+                        <canvas id="phChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="data-table-container">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">📋 Tabella dati completa</h3>
+                <table class="data-table" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Località</th>
+                            <th>Parametro</th>
+                            <th>Valore</th>
+                            <th>Unità</th>
+                            <th>Commento</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataTableBody">
+                        <!-- Data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Section -->
+    <section class="data-section" id="data">
+        <div class="container">
+            <h2 class="section-title">Dati aperti per decisioni consapevoli</h2>
+            <p class="section-subtitle">La forza di RIVER PRO risiede nella trasparenza. I risultati delle attività di monitoraggio vengono raccolti ed elaborati per essere accessibili a tutti: cittadini, enti e ricercatori.</p>
+            
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="icon"><i class="fas fa-droplet" style="font-size: 2.5rem; color: white;"></i></div>
+                    <h4>Qualità dell'acqua</h4>
+                    <p>Parametri rilevati nelle campagne di novembre e dicembre 2024</p>
+                </div>
+                <div class="data-card">
+                    <div class="icon"><i class="fas fa-location-dot" style="font-size: 2.5rem; color: white;"></i></div>
+                    <h4>Siti monitorati</h4>
+                    <p>3 località chiave nel territorio del Simeto</p>
+                </div>
+                <div class="data-card">
+                    <div class="icon"><i class="fas fa-chart-line" style="font-size: 2.5rem; color: white;"></i></div>
+                    <h4>Stato del progetto</h4>
+                    <p>Fase 1 di 3 - Monitoraggio attivo</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="data/water_monitoring.csv" class="cta-button secondary" download>Scarica il dataset</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps Section -->
+    <section class="next-steps" id="next-steps">
+        <div class="container">
+            <div class="next-steps-content">
+                <h3>Prossimi passi</h3>
+                <p>L'analisi ha confrontato i valori registrati con gli standard regionali e i trend storici, considerando fattori contestuali come le precipitazioni e l'uso del suolo. Il monitoraggio continuerà per valutare l'evoluzione stagionale dei parametri analizzati.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="eu-badge">
+                🇪🇺 Progetto finanziato dall'Unione Europea
+            </div>
+            <div class="credits">
+                <p>Il progetto River Pro è sviluppato da <strong>Nesti</strong> con il supporto di <strong>Impetus4cs</strong>, finanziato dall'Unione Europea nell'ambito del programma per la ricerca e l'innovazione.</p>
+            </div>
+            <p class="copyright">© 2026 Nesti. Contenuti rilasciati sotto licenza <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">CC BY 4.0</a></p>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+            crossorigin=""></script>
+    
+    <!-- Turf.js for geospatial operations -->
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    
+    <!-- PapaParse for CSV parsing -->
+    <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
+    
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

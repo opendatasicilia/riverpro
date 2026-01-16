@@ -1,0 +1,11 @@
+{
+    "type": "FeatureCollection",
+    "name": "Centrali e altri punti di interesse - RIVER PRO",
+    "features": [
+        { "type": "Feature", "properties": { "name": "Centrale idroelettrica di Contrasto", "type": "Centrale idroelettrica" }, "geometry": { "type": "Point", "coordinates": [ 14.8065864, 37.6513385, 0.0 ] } },
+        { "type": "Feature", "properties": { "name": "Centrale idroelettrica di Paternò", "type": "Centrale idroelettrica" }, "geometry": { "type": "Point", "coordinates": [ 14.8523682, 37.5927562, 0.0 ] } },
+        { "type": "Feature", "properties": { "name": "Centrale idroelettrica di Grottafumata", "type": "Centrale idroelettrica" }, "geometry": { "type": "Point", "coordinates": [ 14.7178958, 37.697261, 0.0 ] } },
+        { "type": "Feature", "properties": { "name": "Centrale idroelettrica di Regalbuto", "type": "Centrale idroelettrica" }, "geometry": { "type": "Point", "coordinates": [ 14.6110838, 37.6780849, 0.0 ] } },
+        { "type": "Feature", "properties": { "name": "Sbarramento ENEL di Contrada Manganelli" }, "geometry": { "type": "Point", "coordinates": [ 14.8008129, 37.6911196, 0.0 ] } }
+    ]
+}
